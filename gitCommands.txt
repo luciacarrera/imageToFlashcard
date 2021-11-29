@@ -1,0 +1,18 @@
+######################### BASIC COMMANDS #########################
+git add urfile.rmd		# adds urfile.rmd to repo (1)
+git add -A 			# adds all all files not in repo (1)
+git commit -m "any message"	# "saves" file version (2)
+git push origin master		# pushes versions of files to the cloud (3)
+git pull origin master		# gets versions of files from the cloud
+git status 			# you can see what files havent been added to repo or have been modified
+
+######################### SETTING UP COMMANDS #########################
+### to setup via ssh (recommended)
+git init
+git remote add origin git@github.com:luciacarrera/imageToFlashcard.git
+git pull origin master
+
+### to setup via https
+git init
+git remote add origin https://github.com/luciacarrera/imageToFlashcard.git
+git pull origin master

@@ -1,4 +1,4 @@
-######################### BASIC COMMANDS #########################
+######################### BASIC COMMANDS ###########################
 git add urfile.rmd		# adds urfile.rmd to repo (1)
 git add -A 			# adds all all files not in repo (1)
 git commit -m "any message"	# "saves" file version (2)

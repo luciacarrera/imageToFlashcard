@@ -1,0 +1,19 @@
+1. Create Github account
+2. Tell me your github username
+3. Accept invitation to my github repository (invitation sent through email)
+4. Download Github Desktop
+5. Sign in to Github Desktop (you may get signed in automatically)
+6. Go to File -> Clone Repository
+7. Choose luciacarrera/imageToFlashCards and press "Clone"
+8. Press upper middle button that says "Pull Origin" (Sometimes Fetch Origin appears, if so click, if it still says fetch origin skip to next step)
+9. Now you can see the code on your computer through the file explorer
+10. Edit the code/documents/whatever normally
+11. Commit (name the commit please)
+12. Push
+
+
+############## GITHUB VOCABULARY ######################
+- Clone : to make a copy of the current version of the repository that is in the cloud in your desktop (usually done once at the beginning)
+- Pull: to pull the current version of the cloud repository to your computer
+- Commit: Mini saves of the version of the repository on your computer
+- Push: sends the latest version of the repository to the cloud

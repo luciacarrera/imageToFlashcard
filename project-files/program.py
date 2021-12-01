@@ -12,8 +12,7 @@ def main():
     while repeat:
 
         # give instructions to the user on what they should upload
-
-        print("code")
+        instructions()
 
         # ask user if they want to continue using program
         answer = input("Would you like to make more flashcards?\nPlease answer with yes or no: ")
@@ -31,12 +30,13 @@ def main():
 # end of main function
 
 
+
 # function to print out welcome text
 def welcome():
     
     # opening of welcome file with try catch
     try:
-        welcome = open('welcome.txt',encoding="utf-8")
+        welcomeFile = open('welcome.txt',encoding="utf-8")
 
     # error message in case welcome file missing or corrupt
     except:
@@ -44,10 +44,28 @@ def welcome():
 
     # printing of welcome text file
     else:
-        print(welcome.read())
+        print(welcomeFile.read())
         
 # end of welcome function
        
+
+
+# function to give instructions to the user on how to properly submit an image
+def instructions():
+    try:
+        instructionsFile = open('instructions.txt',encoding="utf-8")
+
+    # error message in case welcome file missing or corrupt
+    except:
+        print("Sorry but our instructions have gotten lost")
+
+    # printing of welcome text file
+    else:
+        print(instructionsFile.read())
+        
+# end of instructions function
+
+
 
 # make main run
 main()

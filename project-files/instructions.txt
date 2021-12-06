@@ -1,0 +1,6 @@
+
+Things to keep in mind when uploading images to our program.	
+	1. Your image must be a png!
+	2. We need clear, good images so that our program can recognize the text.
+
+We have some examples of good and bad images for you

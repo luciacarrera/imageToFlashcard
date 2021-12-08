@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-12-08T00:19:17.071Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="P3e0ZpNZoT8nrkZgWfIl" version="15.9.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-12-08T00:19:58.826Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="yJM-najVF-H3ywoRzUpe" version="15.9.1" type="github">
   <diagram id="_37h1flMU-dZSMcLrL18" name="Page-1">
     <mxGraphModel dx="734" dy="1784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -33,7 +33,7 @@
         <mxCell id="EfqrjUmPXuVLgtNHu1Gg-36" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="EfqrjUmPXuVLgtNHu1Gg-4" target="EfqrjUmPXuVLgtNHu1Gg-35" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="EfqrjUmPXuVLgtNHu1Gg-4" value="Is image in correct format?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="EfqrjUmPXuVLgtNHu1Gg-4" value="Is image in correct format?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" vertex="1">
           <mxGeometry x="755" y="-510" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="EfqrjUmPXuVLgtNHu1Gg-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="EfqrjUmPXuVLgtNHu1Gg-9" target="EfqrjUmPXuVLgtNHu1Gg-2" edge="1">

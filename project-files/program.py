@@ -30,11 +30,19 @@ def main():
 
 
         ## ASK USER FOR IMAGE
+        img = image_upload()
 
         ## ASKS USER WHAT LANGUAGES ARE IN IMAGE
+        # use csv
 
         ## READS WORDS FROM IMAGE
         vocabList = img_to_text(langList, img)
+
+        ## ASK USER IF VERTICAL OR HORIZONTAL
+
+        ## ASK USER ROWS/COLS
+
+        ## CREATE QUIZLET FILE ACCORDING TO IF VERTICAL OR HORIZONTAL AND ROWS COLS
 
         ## REPEAT PROGRAM
         # ask user if they want to continue using program
@@ -131,6 +139,30 @@ def instructions():
                 badImage1.show()
 
 # end of instructions function
+
+# function to let user upload image
+def image_upload():
+    # ask for the name of file
+    image_name = input("What is the name of the image you would like to convert? (Don't forget to add .png and the correct path) ")
+    img = ""
+    try:
+        img = Image.open(image_name)
+
+    # Error message
+    except:
+        print("Something went wrong. Check the image format and location and try again.")
+        image_upload()
+
+    else:
+        # Display the image and ask if it's the right one
+        img.show()
+        image_check = input("Is this the right image? (yes/no) ").lower()
+        # time.sleep(1)
+        while image_check != "yes" and image_check != "no":
+            image_check = input("Sorry we did not understand that, please answer with yes or no: ").lower()
+        if image_check == "no":
+            image_upload()
+        return img
 
 # Function that returns list of words it identifies from the image
 # parameters are the language list and the image

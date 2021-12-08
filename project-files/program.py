@@ -5,6 +5,7 @@
 # We will be using the Pillow library (Image module)
 from PIL import Image as Image
 import time
+import easyocr
 
 def main():
     
@@ -26,6 +27,14 @@ def main():
         if answer == "yes":
             # give instructions to the user on what they should upload
             instructions()
+
+
+        ## ASK USER FOR IMAGE
+
+        ## ASKS USER WHAT LANGUAGES ARE IN IMAGE
+
+        ## READS WORDS FROM IMAGE
+        vocabList = img_to_text(langList, img)
 
         ## REPEAT PROGRAM
         # ask user if they want to continue using program
@@ -123,7 +132,18 @@ def instructions():
 
 # end of instructions function
 
+# Function that returns list of words it identifies from the image
+# parameters are the language list and the image
+def img_to_text(langList, img):
+    reader = easyocr.Reader(langList)
+    text = reader.readtext(img)
+    vocab = []
+    for myTuple in text:
+        vocab.append(myTuple[1])
 
+    # return created list with vocan
+    return vocab
+# end of instructions function
 
 # make main run
 main()

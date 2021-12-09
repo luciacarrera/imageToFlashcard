@@ -95,7 +95,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="LanguageSet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="LanguageSet" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="FinalProject1" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +139,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LanguageSet" />
         <item itemvalue="Python.ImgToText" />
         <item itemvalue="Python.ChooseAndCrop (1)" />
         <item itemvalue="Python.program" />

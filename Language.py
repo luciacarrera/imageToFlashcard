@@ -15,11 +15,10 @@ def csv_file():
 
     except Exception as err:
         print(err)
-
+        
     else:
         return langbook
-
-
+        
 # Define the languages that has been used
 def number_lang():
     # How many language are in the image
@@ -33,13 +32,12 @@ def number_lang():
     except Exception as err:
         print(err)
         print("The answer has to be numeric.")
-        # FIGURE OUT HOW TO RUN IT AGAIN IF THIS CASE OCCURS
-
+        #FIGURE OUT HOW TO RUN IT AGAIN IF THIS CASE OCCURS
+        
     else:
         # Create empty list for the language shortcuts
-        lang_list = [0] * number_lang
+        lang_list = [0]*number_lang
         return lang_list
-
 
 # Find the shortcuts of used Languages
 def lang_output(lang_list, langbook):
@@ -49,19 +47,20 @@ def lang_output(lang_list, langbook):
             lang = input(f"Write the name of the {index+1} language that appears in the image and hit Enter: ").lower()
             first_letter = lang[0].upper()
             lang = first_letter + lang[1:]
+            print(lang)
             if lang not in langbook:
-                print(f"The {index+1} language name was not found in the list.")
+                print("The language name was not found in the list.")
             else:
                 lang_list[index] = (langbook[lang])
 
     except:
         print("Something went wrong. Try again.")
-
+        lang_output(lang_list, langbook)
     else:
-        return lang_list
-
+        print(lang_list)
 
 langbook = csv_file()
 lang_list = number_lang()
 lang_output = lang_output(lang_list, langbook)
-print(lang_output)
+
+        

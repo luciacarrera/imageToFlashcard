@@ -1,15 +1,15 @@
 import easyocr
 
-def img_to_text(langList):
-    reader = easyocr.Reader(langList)
-    text = reader.readtext('images/cols3.png')
+def img_to_text(langList,img):
+    reader = easyocr.Reader(['en'])
+    text = reader.readtext(img)
     vocab = []
     for myTuple in text:
         vocab.append(myTuple[1])
-    print(vocab)
+    return vocab
 
 
 
 
-
-img_to_text(['en','ch_sim'])
+vocab = img_to_text(['en','ch_sim'],'images/cols3.png')
+print(vocab)

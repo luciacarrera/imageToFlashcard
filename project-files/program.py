@@ -33,7 +33,7 @@ def main():
 
         ## ASK USER FOR IMAGE
         img = image_upload()
-# SIMONA
+        # SIMONA
         ## ASKS USER WHAT LANGUAGES ARE IN THE IMAGE
         langbook = csv_file()
         lang_list = number_lang()
@@ -42,12 +42,12 @@ def main():
         ## READS WORDS FROM IMAGE
         vocabList = img_to_text(langList, img)
 
-        ## ASK USER IF VERTICAL OR HORIZONTAL
-
         ## ASK USER ROWS/COLS
+        rc_list = rowsCols()
 
         ## CREATE QUIZLET FILE ACCORDING TO IF VERTICAL OR HORIZONTAL AND ROWS COLS
-#LUCIA
+        quizlet()
+
         ## REPEAT PROGRAM
         # ask user if they want to continue using program
         answer = input("Would you like to make more flashcards?\nPlease answer with yes or no: ").lower()
@@ -168,20 +168,28 @@ def image_upload():
             image_check = input("Sorry we did not understand that, please answer with yes or no: ").lower()
         if image_check == "no":
             image_upload()
-        return img
+        return image_name
 
 
 # LUCIA
 # Function that returns list of words it identifies from the image
 # parameters are the language list and the image
-def img_to_text(langList, img):
-    reader = easyocr.Reader(langList)
-    text = reader.readtext(img)
+def img_to_text(langlist,img):
     vocab = []
-    for myTuple in text:
-        vocab.append(myTuple[1])
-
-    # return created list with vocan
+    text = ()
+    try:
+        reader = easyocr.Reader(langlist)
+    except:
+        print("Our ocr does not seem to be working :(")
+    else:
+        try:
+            text = reader.readtext(img)
+        except:
+            print("Our ocr can't seem to read your image :( ")
+        else:
+            for myTuple in text:
+                vocab.append(myTuple[1])
+    # return created list with vocab
     return vocab
 # end of instructions function
 
@@ -245,7 +253,27 @@ def lang_output(lang_list, langbook):
         print("Something went wrong.")
 
     else:
+        print(lang_list)
         return lang_list
+
+# function to figure out how many rows and columns the user has in image
+def rowsCols():
+    rows = 0
+    while rows == 0:
+        try:
+            rows = int(input("How many rows are in your image? "))
+        except:
+            print("invalid response. Try Again")
+        else:
+            cols = 0
+            while cols == 0:
+                try:
+                    cols = int(input("How many columns are in your image? "))
+                except:
+                    print("invalid response. Try Again")
+                else:
+                    rowsCols = [rows, cols]
+                    return rowsCols
 
 # make main run
 main()

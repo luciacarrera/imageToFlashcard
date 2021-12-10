@@ -12,7 +12,7 @@ import csv
 def main():
 # LUCIA
     ## WELCOME
-    welcome()
+    welcome(0)
 
     # repeat until user wants to stop using program
     repeat = True
@@ -41,12 +41,23 @@ def main():
 
         ## READS WORDS FROM IMAGE
         vocabList = img_to_text(langList, img)
-
         ## ASK USER ROWS/COLS
         rc_list = rowsCols()
 
+        ## ASK USER ROWS/COLS TO AVOID
+        answer = input("Would you like to avoid in rows?\nPlease answer with yes or no: ").lower()
+
+        # while loop in case they do not answer with yes or no
+        while answer != "yes" and answer != "no":
+            answer = input("Sorry we did not understand that, please answer with yes or no: ").lower()
+
+        if answer == "yes":
+            # give instructions to the user on what they should upload
+            rc_list = avoid(rc_list,0)
+
         ## CREATE QUIZLET FILE ACCORDING TO IF VERTICAL OR HORIZONTAL AND ROWS COLS
-        quizlet()
+        quizlet(rc_list, vocabList)
+        print("You will find your flashcard text input under quizlet.txt")
 
         ## REPEAT PROGRAM
         # ask user if they want to continue using program
@@ -61,17 +72,20 @@ def main():
             repeat = False
         
     # end of repeat while loop
-    
+    welcome(1)
 # end of main function
 
 
 #LUCIA
 # function to print out welcome text
-def welcome():
-    
+def welcome(num):
+    if num == 0:
+        file = "welcome.txt"
+    else:
+        file = "goodbye.txt"
     # opening of welcome file with try catch
     try:
-        welcomeFile = open('welcome.txt' ,encoding="utf-8")
+        welcomeFile = open(file ,encoding="utf-8")
 
     # error message in case welcome file missing or corrupt
     except:
@@ -262,18 +276,90 @@ def rowsCols():
     while rows == 0:
         try:
             rows = int(input("How many rows are in your image? "))
+            if rows < 0:
+                rows = int('error')
         except:
             print("invalid response. Try Again")
+            rows = 0
         else:
+            rowList = []
+            i = 0
+            while i != rows:
+                rowList.append(1)
+                i+=1
             cols = 0
-            while cols == 0:
+            while cols <= 0:
                 try:
                     cols = int(input("How many columns are in your image? "))
+                    if cols < 0:
+                        cols = int('error')
                 except:
                     print("invalid response. Try Again")
+                    cols = 0
                 else:
-                    rowsCols = [rows, cols]
+                    i = 0
+                    colList = []
+                    while i != cols:
+                        colList.append(1)
+                        i += 1
+                    rowsCols = [rowList, colList]
+
                     return rowsCols
+
+# function that asks user what rows to avoid
+def avoid(rc_list, pos):
+    toAvoid = ""
+    if pos == 0:
+        toAvoid = "rows"
+    else:
+        toAvoid = "cols"
+    theList = rc_list[pos]
+    SENTENIAL = 700
+    print("Please tell us what",toAvoid,"to avoid.\nBe careful,",toAvoid,"start at zero.\nTo stop enter",SENTENIAL)
+    num = len(rc_list[pos])
+    theNum = 0
+    while theNum != SENTENIAL:
+        try:
+            theNum = int(input("Avoid: "))
+        except:
+            print("Invalid Response")
+            theNum = -1
+        else:
+            if (theNum >= num and theNum != SENTENIAL ) or theNum < 0:
+                print("Couldn't find ",toAvoid," with that number. Try Again")
+                theNum = -1
+            elif theNum == SENTENIAL:
+                print("finishing...")
+            else:
+                theList[theNum] = 0
+    rc_list[pos] = theList
+    return rc_list
+
+#function that will create quizlet files
+def quizlet(rowsCols, vocab):
+    rows = rowsCols[0]
+    cols = 2
+    nRows = len(rows)
+
+    try:
+        outfile = open('quizlet.txt', 'w',encoding="utf-8")
+    except:
+        print("could open text file")
+    else:
+        numVocab = len(vocab)
+        if numVocab < nRows * cols:
+            print("Error must restart program")
+            #main
+        else:
+            i = 0
+            k = 0
+            myStr = ""
+            for i in range(0,nRows):
+                if rows[i] == 1:
+                    myStr = vocab[k] + "\t"+ vocab[k+1]+"\n"
+                    outfile.write(myStr)
+                k +=2
+            outfile.close()
 
 # make main run
 main()

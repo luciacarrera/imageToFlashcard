@@ -44,11 +44,14 @@ def lang_output(lang_list, langbook):
     try:
         # upload the empty list with languages
         for index in range(len(lang_list)):
-            lang = input(f"Write the name of the {index+1} language that appears in the image and hit Enter: ").lower()
-            first_letter = lang[0].upper()
-            lang = first_letter + lang[1:]
-            if lang not in langbook:
+            lang = input(f"Write the name of the {index+1} language that appears in the image and hit Enter: ")
+            while lang not in langbook:
                 print(f"The {index+1} language name was not found in the list.")
+                offer = input("Do you want to see the language offer? (yes/no) ").lower()
+                if offer == 'yes':
+                    for key in langbook.keys():
+                        print(key)
+                lang = input(f"Write the name of the {index+1} language that appears in the image and hit Enter: ")
             else:
                 lang_list[index] = (langbook[lang])
 

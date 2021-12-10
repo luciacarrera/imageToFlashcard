@@ -124,7 +124,7 @@ def instructions():
         while line != '':
             print(line, end=" ")
             # slows down program for half a second
-            # time.sleep(1)
+            time.sleep(1)
             line = instructionsFile.readline()
         # prints out newline
         print()
@@ -137,24 +137,31 @@ def instructions():
         # displaying the image examples
         if answer == "yes":
             print("Loading examples of good images...")
-            # time.sleep(3)
+            time.sleep(3)
             try:
                 # examples of good images
-                goodImage1 = Image.open("images/good01.webp")
-                goodImage2 = Image.open("images/good02.webp")
-                badImage1 = Image.open("images/banana.png")
+                goodImage1 = Image.open("images/good01.png")
+                goodImage2 = Image.open("images/good02.png")
+                badImage1 = Image.open("images/bad01.png")
+                badImage2 = Image.open("images/bad02.png")
+
 
             except:
                 print("This is weird, we can't seem to find our examples!")
             else:
                 goodImage1.show()
-                # time.sleep(1)
+                time.sleep(1)
                 goodImage2.show()
 
                 input("\nReady for the bad examples?\nPress enter to continue")
 
                 # examples of bad images
+                print("Loading examples of bad images...")
+                time.sleep(3)
                 badImage1.show()
+                time.sleep(1)
+                badImage2.show()
+
 
 # end of instructions function
 
@@ -175,9 +182,10 @@ def image_upload():
 
     else:
         # Display the image and ask if it's the right one
-        img.show()
+
         image_check = input("Is this the right image? (yes/no) ").lower()
-        # time.sleep(1)
+        time.sleep(1)
+        img.show()
         while image_check != "yes" and image_check != "no":
             image_check = input("Sorry we did not understand that, please answer with yes or no: ").lower()
         if image_check == "no":

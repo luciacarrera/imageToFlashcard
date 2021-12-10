@@ -26,14 +26,12 @@ def number_lang():
     try:
         number_lang = int(input("How many languages do you have in the image? "))
         # only positive numbers
-        while number_lang <= 0:
+        if number_lang <= 0:
             print("The answer has to be positive number. ")
             number_lang = int(input("How many languages do you have in the image? "))
 
-    except Exception as err:
-        print(err)
-        print("The answer has to be numeric.")
-        # FIGURE OUT HOW TO RUN IT AGAIN IF THIS CASE OCCURS
+    except ValueError:
+        print('The answer has to be valid integers.')
 
     else:
         # Create empty list for the language shortcuts
@@ -55,7 +53,7 @@ def lang_output(lang_list, langbook):
                 lang_list[index] = (langbook[lang])
 
     except:
-        print("Something went wrong. Try again.")
+        print("Something went wrong.")
 
     else:
         return lang_list

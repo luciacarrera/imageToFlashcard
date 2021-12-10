@@ -9,13 +9,11 @@ def rowsCols():
             print("invalid response. Try Again")
             rows = 0
         else:
-            print(rows)
             rowList = []
             i = 0
-            while i > rows:
-                rowList[i] = 1
-                i += 1
-                print(i)
+            while i != rows:
+                rowList.append(1)
+                i+=1
             cols = 0
             while cols <= 0:
                 try:
@@ -26,9 +24,11 @@ def rowsCols():
                     print("invalid response. Try Again")
                     cols = 0
                 else:
+                    i = 0
                     colList = []
-                    for i in cols:
-                        colList[i] = 1
+                    while i != cols:
+                        colList.append(1)
+                        i += 1
                     rowsCols = (rowList, colList)
 
                     return rowsCols
